@@ -65,8 +65,8 @@ interface PostDAO {
      * at 1, not 0.
      * @return array Posts with author object set, and optional link object set
      */
-    public function getRepliesToPostInRange($post_id, $network, $from, $until, $order_by = 'default', $unit = 'km', $is_public = false,
-    $count = 350, $page = 1);
+    public function getRepliesToPostInRange($post_id, $network, $from, $until, $order_by = 'default', $unit = 'km',
+    $is_public = false, $count = 350, $page = 1);
 
 
     /**
@@ -250,7 +250,7 @@ interface PostDAO {
     public function getPostsByFriendsIterator($user_id, $network, $count, $is_public=false);
 
     /**
-     * Get all posts by an author given an author ID that contain a question  on a given time frame.
+     * Get all posts by an author given an author ID that contain a question mark.
      * @param str $author_id
      * @param str  $network
      * @param int $count
@@ -261,8 +261,24 @@ interface PostDAO {
      * @param bool $is_public Whether or not these results are going to be shown publicly. Defaults to false.
      * @return array Posts by author with a question mark in them with link set
      */
-    public function getAllQuestionPostsInRange($author_id, $network, $count, $from, $until, $page=1, $order_by = 'pub_date',
-    $direction = 'DESC', $is_public = false);
+    public function getAllQuestionPosts($author_id, $network, $count, $page=1, $order_by = 'pub_date',
+    $order_by = 'pub_date', $direction = 'DESC', $is_public = false);
+
+    /**
+     * Get all posts by an author given an author ID that contain a question mark in a given time frame.
+     * @param str $author_id
+     * @param str $network
+     * @param int $count
+     * @param str $from From date
+     * @param str $until Until date
+     * @param int $page
+     * @param str $order_by The column to order the results by. Defaults to "pub_date".
+     * @param str $direction The direction with which to order the results. Defaults to "DESC".
+     * @param bool $is_public Whether or not these results are going to be shown publicly. Defaults to false.
+     * @return array Posts by author with a question mark in them with link set
+     */
+    public function getAllQuestionPostsInRange($author_id, $network, $count, $from, $until, $page=1,
+    $order_by = 'pub_date', $direction = 'DESC', $is_public = false);
 
     /**
      * Get all posts by a given user based on a given time frame.
@@ -361,9 +377,9 @@ interface PostDAO {
      */
     public function getAllMentions($author_username, $count, $network = "twitter", $page=1, $public=false,
     $include_rts = true, $order_by = 'pub_date', $direction = 'DESC');
-    
-    
-     /**
+
+
+    /**
      * Get a certain number of mentions of a username on a given network and on a given time frame.
      * @param str  $author_username
      * @param int $count
@@ -376,8 +392,8 @@ interface PostDAO {
      * to "DESC".
      * @return array of Post objects with author and link set
      */
-    public function getAllMentionsInRange($author_username, $count, $network = "twitter", $from, $until, $page=1, $public=false,
-    $include_rts = true, $order_by = 'pub_date', $direction = 'DESC');
+    public function getAllMentionsInRange($author_username, $count, $network = "twitter", $from, $until, $page=1,
+    $public=false, $include_rts = true, $order_by = 'pub_date', $direction = 'DESC');
 
     /**
      * Get all replies to a given user ID
@@ -394,10 +410,10 @@ interface PostDAO {
      */
     public function getAllReplies($user_id, $network, $count, $page = 1, $order_by = 'pub_date', $direction = 'DESC',
     $is_public = false);
-    
-       
-    
-     /**
+
+
+
+    /**
      * Get all replies to a given user ID on a given time frame.
      * @param int $user_id
      * @param str $network
@@ -410,11 +426,8 @@ interface PostDAO {
      * false.
      * @return array Posts with author and link set
      */
-    public function getAllRepliesInRange($user_id, $network, $count, $from, $until, $page = 1, $order_by = 'pub_date', $direction = 'DESC',
-    $is_public = false);
-    
-    
-    
+    public function getAllRepliesInRange($user_id, $network, $count, $from, $until, $page = 1, $order_by = 'pub_date',
+    $direction = 'DESC', $is_public = false);
 
     /**
      * Get posts by a user ordered by reply count desc
