@@ -66,4 +66,3 @@ screenshots. Sell your idea to the community by clearly explaining its benefits 
 help make the feature. We only build features which align with :doc:`ThinkUp's purpose </intro>`.
 
 Thanks for helping us make ThinkUp a great application, and for respecting the community's time and public spaces.
-
