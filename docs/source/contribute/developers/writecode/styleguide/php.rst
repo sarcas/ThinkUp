@@ -1,8 +1,8 @@
 PHP Code Style Guide
 ====================
 
-This is the Code Style guide for PHP. See the :doc:`main page </contribute/developers/writecode/styleguide/index>` 
-for general guidelines and guides specific to other languages.
+This is the Code Style guide for PHP. See the main :doc:`main page </contribute/developers/writecode/styleguide/index>` 
+page for general guidelines and guides specific to other languages.
 
 Assume we're using `the Drupal PHP coding style <http://drupal.org/coding-standards>`_ unless otherwise noted here.
 
@@ -69,4 +69,3 @@ Drupal conventions to take notice of
 Some of these are inherited from PEAR:
 
 * When constructing multi line IFs, the boolean operator should be at the beginning of the line, not the end.
-
